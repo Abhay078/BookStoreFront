@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/UserService/user.service';
@@ -9,7 +9,7 @@ import { DataServiceService } from 'src/app/services/data-service.service';
   templateUrl: './book-detail.component.html',
   styleUrls: ['./book-detail.component.scss']
 })
-export class BookDetailComponent implements OnInit,DoCheck {
+export class BookDetailComponent implements OnInit,DoCheck ,OnDestroy{
   book: any;
   quantity:number=1;
   constructor(private dataService: DataServiceService, private router: Router, private userService: UserService, public _snackbar: MatSnackBar) { }
@@ -48,7 +48,7 @@ export class BookDetailComponent implements OnInit,DoCheck {
   }
   ngDoCheck(){
     console.log(this.quantity);
-    this.UpdateQuantity(this.quantity,this.book.bookId)
+    
   }
   UpdateQuantity(quantity:number,bookId:number){
     this.userService.UpdateQuantity(quantity,bookId).subscribe((res)=>{
@@ -58,6 +58,9 @@ export class BookDetailComponent implements OnInit,DoCheck {
       console.log(error);
       this._snackbar.open('unable to update quantity','Close')
     })
+  }
+  ngOnDestroy(){
+    this.UpdateQuantity(this.quantity,this.book.bookId)
   }
 
 

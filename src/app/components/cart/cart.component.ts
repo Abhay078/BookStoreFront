@@ -13,6 +13,7 @@ export class CartComponent implements OnInit {
 book:any=[];
 id:any;
 cartbook:any;
+quantity:number=1;
 flag_address:boolean=false;
 flag_summary:boolean=false;
 Address:any;
@@ -30,6 +31,7 @@ Address:any;
     console.log(res);
     this.book=res
     this.id=this.book.data[0].bookId;
+    this.quantity=this.book.data[0].quantity;
     this.GetBookById(this.id);
     
 
@@ -61,6 +63,7 @@ Address:any;
     this.userService.GetAddress().subscribe((res:any)=>{
       console.log(res.data);
       this.Address=res.data;
+      this.UpdateQuantity(this.quantity,this.id);
     })
   }
   update(){
@@ -81,6 +84,15 @@ Address:any;
       console.log(res.data);
       this.dataService.sendMessage(res.data.orderId)
       
+    })
+  }
+  UpdateQuantity(quantity:number,bookId:number){
+    this.userService.UpdateQuantity(quantity,bookId).subscribe((res)=>{
+      console.log(res);
+      this.snackbar.open('quantity updated','Close')
+    },(error)=>{
+      console.log(error);
+      this.snackbar.open('unable to update quantity','Close')
     })
   }
 
