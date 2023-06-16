@@ -1,0 +1,107 @@
+.path {
+    padding: 10px;
+    left: 8%;
+    position: absolute;
+    top: 10%;
+    cursor: pointer;
+}
+
+.header {
+    width: 65%;
+    left: 9%;
+    height: 55px;
+    top: 17%;
+    position: relative;
+    background: #F5F5F5 0% 0% no-repeat padding-box;
+    border: 1px solid #E4E4E4;
+    border-radius: 1px;
+    opacity: 1;
+
+    p {
+        text-align: left;
+        font-weight: 500;
+        padding: 18px;
+        color: #0A0102;
+    }
+}
+
+.main {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #E4E4E4;
+    position: relative;
+    top: 17%;
+    left: 9%;
+    width: 65%;
+}
+
+.img-container {
+    margin: 20px;
+
+    img {
+        width: 65px;
+        height: 85px;
+    }
+}
+
+.details {
+    display: flex;
+
+}
+
+.more_details {
+    display: block;
+    padding: 16px;
+    padding-bottom: 0px;
+
+
+
+    h4 {
+        font: normal normal normal 14px/17px Lato;
+        letter-spacing: 0px;
+        color: #0A0102;
+    }
+
+    p {
+        font: normal normal bold 15px/18px Lato;
+        letter-spacing: 0px;
+        color: #0A0102;
+
+        span {
+            text-decoration: line-through;
+            font: normal normal normal 9px/11px Lato;
+            letter-spacing: 0px;
+            color: #9D9D9D;
+        }
+    }
+
+    #author {
+        font: normal normal normal 10px/12px Lato;
+        letter-spacing: 0px;
+        color: #9D9D9D;
+    }
+
+
+}
+
+.btn {
+    position: absolute;
+    left: 88%;
+    top: 36%;
+    color: transparent;
+    background: white;
+
+    mat-icon {
+        width: 11px;
+        height: 13px;
+        background-color: white;
+        opacity: .5;
+        cursor: pointer;
+    }
+
+    button {
+        border: none;
+        background-color: white;
+        cursor: pointer;
+    }
+
+}
