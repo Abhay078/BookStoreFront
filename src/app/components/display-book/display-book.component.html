@@ -1,0 +1,21 @@
+<div class="header">
+    <div class="main">
+        <div>
+            Books <span>({{AllBook.length }} items)</span>
+        </div>
+        
+        <div class="card" *ngFor="let book of AllBook | search:Search" (click)="RouteToBookDetail(book)" >
+            
+            <div class="img">  <img src="{{book.bookImage}}" alt="Avatar" width="100%"> </div>
+           
+            <div class="container">
+              <h4><b>{{book.title}}</b></h4>
+              <p>By {{book.author}}</p>
+              <img src="\assets\images\star.png" alt="star" class="star" >(20)
+              <p class="price">Rs. {{book.discountedPrice}}<span>Rs. {{book.price}}</span>
+            </div>
+          </div>
+          
+    </div>
+</div>
+

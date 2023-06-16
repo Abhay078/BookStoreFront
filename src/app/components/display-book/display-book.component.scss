@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+}
+
+.card {
+    border: 1px solid #E2E2E2;
+    border-radius: 3px;
+    display: inline-block;
+    margin: 13px;
+    cursor: pointer;
+
+    img {
+        width: 49%;
+        position: relative;
+        justify-content: center;
+        left: 28%;
+        background: #F5F5F5 0% 0% no-repeat padding-box;
+        border-radius: 2px 2px 0px 0px;
+        
+    }
+}
+
+.container {
+    padding: 2px 16px;
+    span {
+        text-decoration: line-through;
+        font: normal normal normal 10px/13px Roboto;
+        letter-spacing: 0px;
+        color: #878787;
+    }
+}
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-left: 101px;
+    grid-gap: 13px;
+    gap: 8px;
+    
+    padding: 74px;
+}
+
+.main {
+    // position: absolute;
+    // top: 15%;
+    // left: 5%;
+    // display: flex;
+    // gap: 2%;
+    // flex-wrap: wrap;
+    // justify-content: center;
+    height: auto;
+    gap: 15px;
+
+    
+}
+
+
+.price {
+    height: 16px;
+    font: normal normal bold 12px/16px Roboto;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+}
+
+.img {
+    background-color: #F5F5F5;
+    padding: 10px;
+    padding-top: 14px;
+}
+.star{
+    width: 33px !important;
+height: 16px;
+left: 0px !important;
+border-radius: 1px;
+}
