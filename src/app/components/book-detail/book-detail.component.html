@@ -1,0 +1,44 @@
+
+<p style="color: #9D9D9D;" class="path" (click)="GoTodashboard()">Home/<span style="color: #0A0102;">Book({{book.bookId}})</span></p>
+<div class="img-container">
+    <img src="{{book.bookImage}}" class="img">
+</div>
+<div class="book-details">
+    <h4>{{book.title}}</h4>
+              <p>By {{book.author}}</p>
+              <img src="\assets\images\star.png" alt="star" class="star" >(20)
+              <p class="price">Rs. {{book.discountedPrice}}&nbsp;&nbsp;<span>Rs. {{book.price}}</span>
+</div>
+<hr class="line">
+<div class="description">
+    <span> &#9679; Book Details</span>
+    <p>{{book.description}}</p>
+</div>
+<hr class="line2">
+<div class="review">
+    <p>Customer Feedback</p>
+    <div class="rating">
+       <p>Overall Rating</p>
+       <div>
+        <mat-icon>star_outline</mat-icon>
+        <mat-icon>star_outline</mat-icon>
+        <mat-icon>star_outline</mat-icon>
+        <mat-icon>star_outline</mat-icon>
+        <mat-icon>star_outline</mat-icon>
+        <div class="input">
+            <input type="textarea" placeholder="Write your review">
+        </div>
+        <button type="submit">Submit</button>
+        
+    </div>
+    </div>
+</div>
+
+
+<div class="btn">
+    <button *ngIf="flag==false" class="btn-cart" (click)="AddToCart(book.bookId)">Add To Bag</button>
+    <div *ngIf="flag==true" class="increment"><button (click)="quantity=quantity-1">-</button><span>{{quantity}}</span><button (click)="quantity=quantity+1">+</button></div>
+                
+    <button class="btn-wish" (click)="AddToWishList(book.bookId)"><mat-icon>favorite</mat-icon>WishList</button>
+</div>
+
