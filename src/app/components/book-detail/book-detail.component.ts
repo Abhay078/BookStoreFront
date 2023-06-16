@@ -48,6 +48,16 @@ export class BookDetailComponent implements OnInit,DoCheck {
   }
   ngDoCheck(){
     console.log(this.quantity);
+    this.UpdateQuantity(this.quantity,this.book.bookId)
+  }
+  UpdateQuantity(quantity:number,bookId:number){
+    this.userService.UpdateQuantity(quantity,bookId).subscribe((res)=>{
+      console.log(res);
+      this._snackbar.open('quantity updated','Close')
+    },(error)=>{
+      console.log(error);
+      this._snackbar.open('unable to update quantity','Close')
+    })
   }
 
 

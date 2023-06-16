@@ -84,5 +84,5 @@
             <h4>{{cartbook.data.title}}</h4>
             <p id="author">By {{cartbook.data.author}}</p>
               <p class="price">Rs. {{cartbook.data.discountedPrice}}&nbsp;&nbsp;<span>Rs. {{cartbook.data.price}}</span><br>
-              <button id="checkout" routerLink="/dashboard/order">Checkout</button>  
+              <button id="checkout" routerLink="/dashboard/order" (click)="Order(cartbook.data.bookId)">Checkout</button>  
    </div>

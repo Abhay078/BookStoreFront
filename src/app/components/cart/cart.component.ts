@@ -16,7 +16,7 @@ cartbook:any;
 flag_address:boolean=false;
 flag_summary:boolean=false;
 Address:any;
-  constructor(private router:Router,private userService:UserService,public snackbar:MatSnackBar) { }
+  constructor(private router:Router,private userService:UserService,public snackbar:MatSnackBar,private dataService:DataServiceService) { }
 
   ngOnInit(): void {
     this.GetAllCart();
@@ -29,7 +29,8 @@ Address:any;
    this.userService.GetAllCart().subscribe((res)=>{
     console.log(res);
     this.book=res
-    this.id=this.book.data[0].bookId
+    this.id=this.book.data[0].bookId;
+    this.GetBookById(this.id);
     
 
 
@@ -49,6 +50,7 @@ Address:any;
     this.userService.RemoveBookfromCart(id).subscribe((res)=>{
       console.log(res);
       this.snackbar.open('The book is removed from cart','Close')
+      window.location.reload();
     },(error)=>{
       console.log(error);
       this.snackbar.open('Unable to remove book','Close')
@@ -71,6 +73,14 @@ Address:any;
     }
     this.userService.UpdateAddress(data,this.Address.addressId).subscribe((res)=>{
       console.log(res);
+    })
+  }
+  Order(id:number){
+    
+    this.userService.Order(id).subscribe((res:any)=>{
+      console.log(res.data);
+      this.dataService.sendMessage(res.data.orderId)
+      
     })
   }
 

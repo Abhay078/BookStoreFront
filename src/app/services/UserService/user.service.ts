@@ -119,4 +119,23 @@ export class UserService {
     }
     return this.httpService.putMethod(`User/AddressId?AddressId=${id}`,data,true,headers)
   }
+  Order(id:number){
+    let headers = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.tokenValue
+      })
+    }
+    return this.httpService.postMethod(`Order/bookId?bookId=${id}`,{},true,headers);
+  }
+
+  UpdateQuantity(quantity:number,bookId:number){
+    let headers = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.tokenValue
+      })
+    }
+    return this.httpService.putMethod(`Cart/BookId?BookId=${bookId}&quantity=${quantity}`,{},true,headers)
+  }
 }
