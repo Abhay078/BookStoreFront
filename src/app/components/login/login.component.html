@@ -1,0 +1,42 @@
+<div>
+    <div class="img-container">
+        <img src="\assets\images\2766594.png" alt="Login Page" class="img">
+        <span>Online Book Shopping</span>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div routerLink="/login">
+                <span class="head">Login</span><div class="border"></div>
+            </div>
+            <div routerLink="/signUp"><span style="cursor:pointer;opacity: .5;">Signup</span></div>
+        </div>
+        <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
+            <div>
+
+                <label class="label">Email Id</label><br>
+                <input type="email" formControlName="email" class="input"><br>
+                <mat-error
+                    *ngIf="LoginForm.controls['email'].invalid && (LoginForm.controls['email'].dirty || LoginForm.controls['email'].touched)">
+                    Enter Valid email</mat-error>
+
+                <div class="pass">
+                    <label class="label">Password</label><br>
+                    <input type="{{hide ?'text':'password'}}" formControlName="password" class="input">
+                    <mat-icon class="eye" (click)="hide =!hide">{{ hide ? 'visibility_off'
+                        :'visibility'}}</mat-icon><br>
+                    <mat-error
+                        *ngIf="LoginForm.controls['password'].invalid && (LoginForm.controls['password'].dirty || LoginForm.controls['password'].touched)">Enter
+                        Valid password</mat-error>
+                </div>
+                <br>
+                <button type="submit" class="btn">Login</button>
+            </div>
+            <span class="divider">OR</span>
+            <div class="btn-lower">
+                <button class="fb">Facebook</button>
+                <button class="google">Google</button>
+            </div>
+        </form>
+    </div>
+</div>
