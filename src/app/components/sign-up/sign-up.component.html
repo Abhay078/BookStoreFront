@@ -1,0 +1,50 @@
+<div>
+    <div class="img-container">
+        <img src="\assets\images\2766594.png" alt="Signup Page" class="img">
+        <span>Online Book Shopping</span>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div routerLink="/login">
+                <span style="cursor:pointer;opacity: .5;">Login</span>
+                
+            </div>
+            <div routerLink="/signUp"><span class="head">Signup</span><div class="border"></div></div>
+            
+        </div>
+        <form [formGroup]="RegisterForm" (ngSubmit)="onSubmit()">
+            <div id="uname">
+                <label class="label">Full Name</label><br>
+                <input type="text" formControlName="name" class="input" #name><br>
+                <mat-error
+                    *ngIf="RegisterForm.controls['name'].invalid && (RegisterForm.controls['name'].dirty || RegisterForm.controls['name'].touched)">Enter
+                    Valid Name</mat-error><br>
+
+                <label class="label">Email Id</label><br>
+                <input type="email" formControlName="email" class="input"><br>
+                <mat-error
+                    *ngIf="RegisterForm.controls['email'].invalid && (RegisterForm.controls['email'].dirty || RegisterForm.controls['email'].touched)">Enter
+                    Valid email</mat-error><br>
+
+                <div class="pass">
+                    <label class="label">Password</label><br>
+                    <input type="{{hide ?'text':'password'}}" formControlName="password" class="input"><br>
+                    <mat-icon class="eye" (click)="hide =!hide">{{ hide ? 'visibility_off' :'visibility'}}</mat-icon>
+                    <mat-error
+                        *ngIf="RegisterForm.controls['password'].invalid && (RegisterForm.controls['password'].dirty || RegisterForm.controls['password'].touched)">Enter
+                        Valid password</mat-error><br>
+
+                    <label class="label">Mobile Number</label><br>
+                    <input type="text" formControlName="number" class="input"><br>
+                    <mat-error
+                        *ngIf="RegisterForm.controls['number'].invalid && (RegisterForm.controls['number'].dirty || RegisterForm.controls['number'].touched)">Enter
+                        Valid Number</mat-error><br>
+                </div>
+                <br>
+                <button type="submit" class="btn">Signup</button>
+            </div>
+
+        </form>
+    </div>
+</div>
