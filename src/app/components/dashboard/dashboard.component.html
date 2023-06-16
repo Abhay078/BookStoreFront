@@ -1,0 +1,36 @@
+<header class="header">
+    <img src="\assets\images\education.png" alt="book" class="img">
+    <p class="para">BookStore</p>
+    <div class="search"><mat-icon class="search">search</mat-icon>
+        <input type="text" placeholder="Search" (keyup)="searchNote($event)"></div>
+    
+    <div class="person" ><button [matMenuTriggerFor]="menu"><mat-icon >person_outline</mat-icon></button>
+    Profile</div>
+    
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item >
+              <mat-icon>person_outline</mat-icon>
+              <span>Profile</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>markunread_mailbox</mat-icon>
+              <span>My Orders</span>
+            </button>
+            <button mat-menu-item routerLink="/dashboard/wishlist">
+              <mat-icon>favorite_border</mat-icon>
+              <span>My WishList</span>
+            </button>
+            <button id="menu_button" (click)="logout()">Logout</button>
+          </mat-menu>
+      
+    <div class="cart">
+        <mat-icon fontSet="material-icons-outlined" routerLink="/dashboard/cart">shopping_cart</mat-icon>
+        
+        <p class="cart_p">Cart</p>
+    </div>
+</header>
+<router-outlet></router-outlet>
+<footer class="footer">
+    <p>Copyright © 2020, Bookstore Private Limited. All Rights Reserved</p>
+
+</footer>
