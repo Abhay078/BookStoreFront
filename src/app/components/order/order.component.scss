@@ -1,0 +1,59 @@
+.main{
+    display: flex;
+    justify-content: center;
+    img{
+        position: absolute;
+        top: 15%;
+    
+    }
+    p{
+        position: absolute;
+        top: 44%;
+        width: 21%;
+        text-align: center;
+        height: 66px;
+    }
+    table{
+        position: absolute;
+        top: 58%;
+        width: 751px;
+        text-align: center;
+        height: 66px;
+        background: #FAFAFA 0% 0% no-repeat padding-box;
+        outline-color: #DCDCDC;
+    }
+    tr{
+        
+    }
+    td{
+        outline: 1px solid;
+    outline-color: #DCDCDC;
+    height: 81px;
+    font-family: lato;
+    font-size: 15px;
+    width: 40px !important;
+    }
+
+        
+    
+    
+}
+.head{
+    border: 0;
+    height:40px;
+}
+button{
+    position: absolute;
+    top: 85%;
+    width: 200px;
+height: 35px;
+/* UI Properties */
+background: #3371B5 0% 0% no-repeat padding-box;
+border-radius: 3px;
+opacity: 1;
+color: white;
+border: none;
+cursor: pointer;
+text-transform: uppercase;
+font: lato;
+}
