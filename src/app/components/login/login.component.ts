@@ -36,8 +36,9 @@ export class LoginComponent implements OnInit {
       }
       this.user.login(loginData).subscribe((response: any) => {
         console.log(response);
-        this._snackBar.open('Login Successful', 'Close');
         localStorage.setItem('token', response.data)
+        this._snackBar.open('Login Successful', 'Close');
+        
         this.route.navigateByUrl('/dashboard/book');
 
       }, (error) => {
