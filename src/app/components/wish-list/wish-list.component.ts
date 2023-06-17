@@ -23,7 +23,7 @@ export class WishListComponent implements OnInit {
   GetAllWishItems(){
     this.userService.GetAllWishItem().subscribe((res:any)=>{
       for(let i=0;i<res.data.length;i++){
-        this.RetriveBook(i+1);
+        this.RetriveBook(res.data[i].bookId);
       }
       // console.log(res.data[0].bookId);
       
@@ -42,6 +42,7 @@ export class WishListComponent implements OnInit {
     this.userService.RemoveWishItem(id).subscribe((res)=>{
       console.log(res);
       this.snackbar.open('Removed Successfully','Close')
+      window.location.reload();
     },(error)=>{
       console.log(error);
       this.snackbar.open('Unable to remove','Close')
