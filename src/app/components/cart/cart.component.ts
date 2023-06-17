@@ -11,6 +11,7 @@ import { DataServiceService } from 'src/app/services/data-service.service';
 })
 export class CartComponent implements OnInit {
 book:any=[];
+Books:any=[];
 id:any;
 cartbook:any;
 quantity:number=1;
@@ -27,23 +28,25 @@ Address:any;
     this.router.navigateByUrl('/dashboard/book')
   }
   GetAllCart(){
-   this.userService.GetAllCart().subscribe((res)=>{
+   this.userService.GetAllCart().subscribe((res:any)=>{
     console.log(res);
     this.book=res
     this.id=this.book.data[0].bookId;
     this.quantity=this.book.data[0].quantity;
-    this.GetBookById(this.id);
-    
-
-
+    for(let i=0;i<res.data.length;i++){
+      this.GetBookById(res.data[i].bookId);
+    }
+   
    },(error)=>{
     console.log(error);
    })
   }
   GetBookById(id:any){
-     this.userService.GetBook(id).subscribe((res)=>{
+     this.userService.GetBook(id).subscribe((res:any)=>{
       console.log(res);
       this.cartbook=res;
+      this.Books.push(res.data)
+      console.log('books'+ this.Books[0].bookId)
      },(error)=>{
       console.log(error)
      })

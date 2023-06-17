@@ -4,85 +4,92 @@
         <p>My cart</p>
         <div><mat-icon>location_on</mat-icon>
             <select>
-                
+
                 <option>BridgeLabz Solutions LLP, No...</option>
-            </select></div>
-        
-    </div>
-    <div class="details">
-        <div class="img-container">
-            <img src="{{cartbook.data.bookImage}}" class="img">
+            </select>
         </div>
-        
+
+    </div>
+    <div class="details" *ngFor="let book of Books">
+        <div class="img-container">
+            <img src="{{book.bookImage}}" class="img">
+        </div>
+
         <div class="more_details">
-            <h4>{{cartbook.data.title}}</h4>
-            <p id="author">By {{cartbook.data.author}}</p>
-              <p class="price">Rs. {{cartbook.data.discountedPrice}}&nbsp;&nbsp;<span>Rs. {{cartbook.data.price}}</span><br>
-                <div class="increment"><button (click)="quantity=quantity-1">-</button><span>{{quantity}}</span><button (click)="quantity=quantity+1">+</button></div>
-                
-                <button (click)="RemoveItem(cartbook.data.bookId)">Remove</button>
+            <h4>{{book.title}}</h4>
+            <p id="author">By {{book.author}}</p>
+            <p class="price">Rs. {{book.discountedPrice}}&nbsp;&nbsp;<span>Rs. {{book.price}}</span><br>
+            <div class="increment"><button (click)="quantity=quantity-1">-</button><span>{{quantity}}</span><button
+                    (click)="quantity=quantity+1">+</button></div>
+
+            <button (click)="RemoveItem(book.bookId)">Remove</button>
         </div>
     </div>
     <div class="btn">
         <button (click)="GetAddress()" [hidden]="flag_address">Place Order</button>
     </div>
-    
+
 </div>
 
 <div class="Address" *ngIf="flag_address==false">
- <p>Address Details</p>
+    <p>Address Details</p>
 </div>
 <div class="Address_actual" *ngIf="flag_address==true">
     <div class="address_upper">
         <p>Customer Details</p>
-    <button>Add new Address</button>
+        <button>Add new Address</button>
     </div>
-    <p style="font-weight: 600;">  &nbsp;&nbsp;  1. Home</p>
+    <p style="font-weight: 600;"> &nbsp;&nbsp; 1. Home</p>
     <div class="form-div">
-        <form >
-            
-                <div class="name">
-                    <label>Full Name</label>
+        <form>
+
+            <div class="name">
+                <label>Full Name</label>
                 <label>Mobile Number</label>
-                </div>
-              <div class="name">
-                <input type="text" placeholder="" value ="Abhay Singh" readonly>
-            
-            <input type="text" placeholder="" value="8953123456" readonly>
-              </div>  
-            
-            
-            
+            </div>
+            <div class="name">
+                <input type="text" placeholder="" value="Abhay Singh" readonly>
+
+                <input type="text" placeholder="" value="8953123456" readonly>
+            </div>
+
+
+
             <label>Address</label>
             <input type="textarea" rows="3" columns="60" id="address" name="address" [(ngModel)]="Address.address"><br>
             <div class="name">
                 <label>City/Town</label>
-            
-            <label style="padding-right:40%;">State </label>
+
+                <label style="padding-right:40%;">State </label>
             </div>
             <div class="name">
                 <input type="text" name="city" [(ngModel)]="Address.city">
-            <input type="text" name="state" [(ngModel)]="Address.state">
+                <input type="text" name="state" [(ngModel)]="Address.state">
             </div>
-            
-            
+
+
         </form>
         <button (click)="update()" [hidden]="flag_summary">continue</button>
     </div>
-    
+
 </div>
 <div class="Order" *ngIf="flag_summary==false">
     <p>Order Summary</p>
-   </div>
-   <div class="Order-actual" *ngIf="flag_summary==true">
-    <div class="details">
+</div>
+<div class="Order-actual" *ngIf="flag_summary==true">
+    <div class="details" *ngFor="let book of Books">
         <div class="img-container">
-            <img src="{{cartbook.data.bookImage}}" class="img">
+            <img src="{{book.bookImage}}" class="img">
         </div>
-        
+
         <div class="more_details">
-            <h4>{{cartbook.data.title}}</h4>
-            <p id="author">By {{cartbook.data.author}}</p>
-              <p class="price">Rs. {{cartbook.data.discountedPrice}}&nbsp;&nbsp;<span>Rs. {{cartbook.data.price}}</span><br>
-              <button id="checkout" routerLink="/dashboard/order" (click)="Order(cartbook.data.bookId)">Checkout</button>  
-   </div>
+            <h4>{{book.title}}</h4>
+            <p id="author">By {{book.author}}</p>
+            <p class="price">Rs. {{book.discountedPrice}}&nbsp;&nbsp;<span>Rs. {{book.price}}</span><br>
+
+        </div>
+        <button id="checkout" routerLink="/dashboard/order" (click)="Order(book.bookId)">Checkout</button>
+        
+    </div>
+    
+</div>
